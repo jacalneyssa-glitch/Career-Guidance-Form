@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Guidance</title>
+    <link rel="stylesheet" href="gr2.css">
+</head>
+<body>
+
+
+<div id="frontPage" class="container">
+    <h2>Career Guidance Form</h2>
+
+    <label>Full Name</label>
+    <input type="text" id="name" required>
+
+    <label>Age</label>
+    <input type="number" id="age" required>
+
+    <label>Location (City or Province)</label>
+    <input type="text" id="location" required>
+
+    <label>Phone Number</label>
+    <input type="number" id="phone" required>
+
+    <label>Email</label>
+    <input type="email" id="email" required>
+
+    <label>Strand</label>
+    <select id="strand" required>
+        <option value="">-- Select Strand --</option>
+        <option>STEM</option>
+        <option>ABM</option>
+        <option>HUMSS</option>
+        <option>GAS</option>
+        <option>TVL - ICT</option>
+        <option>TVL - HE</option>
+        <option>ARTS & DESIGN</option>
+        <option>SPORTS</option>
+    </select>
+
+    <label>
+        <input type="checkbox" id="agree"> I agree to the 
+        <span id="openTerms" style="color:#24ac1f; cursor:pointer;">Terms of Use</span>
+    </label>
+
+    <button onclick="validateFrontPage()">Proceed to Questionnaire</button>
+</div>
+
+
+<div id="termsModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6);">
+    <div style="background:white; padding:20px; max-width:500px; margin:80px auto; border-radius:10px; position:relative;">
+        <h3>Terms of Use / Data Consent</h3>
+        <p>By using this form, you consent to the collection of your Name, Age, Location, Email, Phone Number, and Strand for the purpose of career guidance assessment. Your data will be used only for academic and career guidance purposes.</p>
+        <button id="closeModal" style="margin-top:15px;">Close</button>
+    </div>
+</div>
+
+<div id="questionsPage" class="container" style="display:none;">
+    <h2>Career Questionnaire</h2>
+    <div id="qContainer" class="question">
+        <p id="qText"></p>
+        <div id="answerChoices">
+            <label><input type="radio" name="answer" value="1"> 1 - No</label><br>
+            <label><input type="radio" name="answer" value="2"> 2 - Maybe</label><br>
+            <label><input type="radio" name="answer" value="3"> 3 - Yes</label><br>
+        </div>
+    </div>
+
+    <div class="progress-bar">
+        <div id="progress"></div>
+    </div>
+
+    <button onclick="nextQuestion()">Next</button>
+</div>
+
+
+<div id="resultPage" class="container" style="display:none;">
+    <h2>Career Result</h2>
+    <p id="courseResult"></p>
+
+    <h3>Recommended Schools For You:</h3>
+    <ul id="schoolList"></ul>
+</div>
+
+<script src="gr2.js"></script>
+</body>
+</html>
